@@ -1,0 +1,189 @@
+{
+    "info": {
+        "_postman_id": "cd7f7e7f-14c9-4e3c-8e3a-3f8902d9bce3",
+        "name": "Weather Microservice API",
+        "description": "Collection for testing the Weather Microservice API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Get All Weather Data",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:3000/api/v1/weather",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "api",
+                        "v1",
+                        "weather"
+                    ]
+                },
+                "description": "Retrieve all weather data entries"
+            },
+            "response": []
+        },
+        {
+            "name": "Get Weather By Location",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:3000/api/v1/weather/New York",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "api",
+                        "v1",
+                        "weather",
+                        "New York"
+                    ]
+                },
+                "description": "Get weather data for a specific location"
+            },
+            "response": []
+        },
+        {
+            "name": "Create Weather Data",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"location\": \"San Francisco\",\n  \"temperature\": 19.5,\n  \"humidity\": 60.0,\n  \"wind_speed\": 12.3,\n  \"conditions\": \"Foggy\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:3000/api/v1/weather",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "api",
+                        "v1",
+                        "weather"
+                    ]
+                },
+                "description": "Add a new weather data entry"
+            },
+            "response": []
+        },
+        {
+            "name": "Update Weather Data",
+            "request": {
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"location\": \"San Francisco\",\n  \"temperature\": 20.5,\n  \"humidity\": 62.0,\n  \"wind_speed\": 10.3,\n  \"conditions\": \"Partly Cloudy\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:3000/api/v1/weather/{{weather_id}}",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "api",
+                        "v1",
+                        "weather",
+                        "{{weather_id}}"
+                    ]
+                },
+                "description": "Update an existing weather data entry by ID"
+            },
+            "response": []
+        },
+        {
+            "name": "Delete Weather Data",
+            "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:3000/api/v1/weather/{{weather_id}}",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "api",
+                        "v1",
+                        "weather",
+                        "{{weather_id}}"
+                    ]
+                },
+                "description": "Delete a weather data entry by ID"
+            },
+            "response": []
+        },
+        {
+            "name": "Health Check",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:3000/health",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "health"
+                    ]
+                },
+                "description": "Check if the service is running properly"
+            },
+            "response": []
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        }
+    ],
+    "variable": [
+        {
+            "key": "weather_id",
+            "value": "",
+            "type": "string",
+            "description": "ID of a weather data entry for testing update/delete operations"
+        }
+    ]
+}
